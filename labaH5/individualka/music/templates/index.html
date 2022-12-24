@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+    <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap/bootstrap-grid.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap/bootstrap-reboot.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap/bootstrap.bundle.min.js' %}"></script>
+</head>
+<body style="background: url({% static 'img/back.png' %});">
+<div class="container col-4 justify-content-center">
+    <h3 class="m-3 text-info">Orders</h3>
+    <a class="mx-3 btn btn-info rounded-0 text-light" href="{% url 'add_order' %}"><i class="bi bi-plus"></i>Add</a>
+    {% for o in orders %}
+    <div class="card m-3 rounded-0 border border-info border-2" style="width: 20rem;">
+        <h5 class="card-title card-header rounded-0 text-bg-info text-light">Order {{o.order_id}}</h5>
+        <div class="card-body text-bg-light">
+            <p class="card-text">Date: {{o.date}}</p>
+            <a href="{% url 'order_detail' o.order_id %}" class="card-link text-info">More...</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>

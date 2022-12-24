@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+    <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap/bootstrap-grid.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap/bootstrap-reboot.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap/bootstrap.bundle.min.js' %}"></script>
+</head>
+<body class="container justify-content-center col-4" style="background: url({% static 'img/back.png' %});">
+<div class="card m-5 border-info rounded-0 border border-2">
+    <div class="card-header text-bg-info rounded-0">
+        <h1 class="card-title text-light">Order {{o.order_id}}</h1>
+    </div>
+    <div class="card-body text-bg-light">
+        <p class="card-text">Customer name: {{o.customer_name}}</p>
+        <p class="card-text">Album: {{o.album_id}}</p>
+        <p class="card-text">Date: {{o.date}}</p>
+        <a href="{% url 'index' %}" class="btn btn-info text-light rounded-0">Back</a>
+        <a href="{% url 'edit_form' o.order_id %}" class="btn btn-info text-light rounded-0">Edit</a>
+    </div>
+</div>
+</body>
+</html>
